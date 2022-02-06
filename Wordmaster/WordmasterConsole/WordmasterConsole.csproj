@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wordmaster\Wordmaster.csproj">
+      <Project>{f95687b1-75d1-4c1b-aa48-dfd45fcff8d5}</Project>
+      <Name>Wordmaster</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

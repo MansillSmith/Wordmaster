@@ -30,16 +30,48 @@ namespace Wordmaster
             {
                 return _numGuesses;
             }
-            set
-            {
-                _numGuesses = value;
-            }
         }
-        private int _numGuesses = 0;
+        private int _numGuesses = 5;
 
+
+        public Game(int numGuesses)
+        {
+            this._numGuesses = numGuesses;
+            this.constructor();
+        }
+
+        public Game()
+        {
+            this.constructor();
+        }
+
+        private void constructor()
+        {
+            this._wordToGuess = GetWordToGuess();
+        }
+
+        private string GetWordToGuess()
+        {
+            return "stand";
+        }
+
+        /// <summary>
+        /// Processes a guess
+        /// </summary>
+        /// <param name="guessedWord">The guessed word</param>
+        /// <returns>The result of the guess, or null if there are no guesses left</returns>
         public GuessResult Guess(string guessedWord)
         {
-            return new GuessResult(guessedWord, WordToGuess);
+            if(_numGuesses > 0)
+            {
+                this._numGuesses--;
+                return new GuessResult(guessedWord, WordToGuess);
+            }
+            else
+            {
+                return null;
+            }
+
         }
     }
 }
